@@ -26,6 +26,7 @@ apps draw identically, so the two look alike by construction.
 | `SourceRowView`, `TransferRowView`, `TipRowView` | The rows of the Sources screen; each app supplies the words |
 | `StatCard`, `StatTile`, `GoalRing` | The Stats screen's cards, headline tiles and yearly goal (with its pace line) |
 | `ActivitySession`, `DayActivity`, `DayKey`, `DeviceActivity`, `ActivityStats` | Time spent with books: day totals synced one slot per device (so never counted twice), streaks, the last months as a calendar, time of day, and the books that took the most time |
+| `ShelfHeader` | The top of a shelf's page (Mango's series, Earmark's author or series): cover, name, what's in it, and one button to continue or start |
 | `ActivityTimeView`, `ActivityHeatmap`, `ActivityHabitsView` | Stats' time, calendar and habits cards; each app supplies its words ("Average sitting", "Average session") |
 
 ## Rules
