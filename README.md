@@ -20,6 +20,7 @@ apps draw identically, so the two look alike by construction.
 | `URL.isInside` | Whether a file is inside a folder, whichever way the folder's path is written |
 | `CopyPlace`, `PlaceBackground`, `PlaceLegend`, `StorageBar`, `TransferRing` | How a source's page draws where each copy is — the same in both apps |
 | `SourceRowView`, `TransferRowView`, `TipRowView` | The rows of the Sources screen; each app supplies the words |
+| `StatCard`, `StatTile`, `GoalRing` | The Stats screen's cards, headline tiles and yearly goal (with its pace line) |
 
 ## Rules
 
