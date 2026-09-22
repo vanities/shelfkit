@@ -12,10 +12,13 @@ extension Logger {
     static let lock = Logger(subsystem: shelfKitSubsystem, category: "lock")
     static let move = Logger(subsystem: shelfKitSubsystem, category: "move")
     static let cloud = Logger(subsystem: shelfKitSubsystem, category: "cloud")
+    static let nas = Logger(subsystem: shelfKitSubsystem, category: "nas")
+    static let store = Logger(subsystem: shelfKitSubsystem, category: "store")
 }
 
 /// Elapsed time since creation, for `[scope] what in N ms` log lines.
 struct Stopwatch {
     private let start = DispatchTime.now()
     var ms: Double { Double(DispatchTime.now().uptimeNanoseconds - start.uptimeNanoseconds) / 1_000_000 }
+    var seconds: Double { ms / 1000 }
 }

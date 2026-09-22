@@ -13,6 +13,9 @@ apps draw identically, so the two look alike by construction.
 | `Keychain` | Generic-password store for NAS logins, under a service the app pins |
 | `BookmarkStore` | Security-scoped bookmarks for folders the user picked |
 | `NASServer` | An SMB share — persisted in each app's library file |
+| `NASClient`, `NASEntry`, `NASError` | SMB over AMSMB2: listing, bounded ranged reads (never aborted mid-stream — that crashed), resumable downloads, uploads |
+| `NASSetupForm` | Adding a share: checks the port, tests the connection, and adds it only once it answers |
+| `JSONStore`, `SalvageableLibrary` | The library file and other JSON: an unreadable file is moved aside, never lost, and merged back once a build can read it |
 | `String` helpers | Natural sort, matching and identity keys, display-name cleanup |
 | `AppLock` | Face ID to open the app, drawn in its own window so it covers presented screens too |
 | `Tombstones`, `UnionSync`, `Stamped`, `LatestWins` | Merging collections across devices so deletions and clears stick |
@@ -37,6 +40,12 @@ apps draw identically, so the two look alike by construction.
 
 ```bash
 swift test
+# NASClient against a real share (skipped unless one is named):
+SHELFKIT_SMB_HOST=… SHELFKIT_SMB_PORT=… SHELFKIT_SMB_SHARE=… SHELFKIT_SMB_USER=… SHELFKIT_SMB_PASSWORD=… \
+  swift test --filter NASClientIntegrationTests
 ```
+
+ShelfKit depends on [AMSMB2](https://github.com/amosavian/AMSMB2), a dynamic framework: each
+app lists it too and embeds it, or it dies at launch on a device.
 
 Licensed under the GNU GPL v3, like both apps.

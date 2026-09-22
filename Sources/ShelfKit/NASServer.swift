@@ -37,6 +37,13 @@ public struct NASServer: Identifiable, Codable, Hashable, Sendable {
         return location
     }
 
+    /// A port as typed into a form: 445 when the field is empty, nil when it isn't a port.
+    public static func port(from text: String) -> Int? {
+        let typed = text.trimmingCharacters(in: .whitespaces)
+        guard !typed.isEmpty else { return 445 }
+        return Int(typed).flatMap { (1...65535).contains($0) ? $0 : nil }
+    }
+
     /// Joins the library root with a path relative to it, SMB style.
     public func remotePath(for relativePath: String) -> String {
         [path, relativePath].filter { !$0.isEmpty }.joined(separator: "/")

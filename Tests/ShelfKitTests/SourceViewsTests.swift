@@ -27,3 +27,17 @@ final class GoalPaceTests: XCTestCase {
         XCTAssertEqual(GoalRing.pace(done: 10, goal: 50, on: midYear, calendar: calendar), "15 behind pace.")
     }
 }
+
+/// The NAS form's port: empty is SMB's 445; anything that isn't a port stops Add.
+final class NASPortTests: XCTestCase {
+    func testPorts() {
+        XCTAssertEqual(NASServer.port(from: ""), 445)
+        XCTAssertEqual(NASServer.port(from: "  "), 445)
+        XCTAssertEqual(NASServer.port(from: "1445"), 1445)
+        XCTAssertEqual(NASServer.port(from: " 139 "), 139)
+        XCTAssertNil(NASServer.port(from: "0"))
+        XCTAssertNil(NASServer.port(from: "70000"))
+        XCTAssertNil(NASServer.port(from: "44 5"))
+        XCTAssertNil(NASServer.port(from: "smb"))
+    }
+}

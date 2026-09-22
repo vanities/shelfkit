@@ -10,8 +10,13 @@ let package = Package(
     products: [
         .library(name: "ShelfKit", targets: ["ShelfKit"]),
     ],
+    dependencies: [
+        // SMB, for NASClient. It's a dynamic framework: each app also lists it and embeds it
+        // (`embed: true`), or the app dies at launch on a device.
+        .package(url: "https://github.com/amosavian/AMSMB2.git", from: "4.0.3"),
+    ],
     targets: [
-        .target(name: "ShelfKit"),
+        .target(name: "ShelfKit", dependencies: [.product(name: "AMSMB2", package: "AMSMB2")]),
         .testTarget(name: "ShelfKitTests", dependencies: ["ShelfKit"]),
     ]
 )
