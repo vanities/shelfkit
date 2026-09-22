@@ -13,6 +13,7 @@ parsers, scanners, reader or player, and UI.
 | `BookmarkStore` | Security-scoped bookmarks for folders the user picked |
 | `NASServer` | An SMB share — persisted in each app's library file |
 | `String` helpers | Natural sort, matching and identity keys, display-name cleanup |
+| `AppLock` | Face ID to open the app, drawn in its own window so it covers presented screens too |
 
 ## Rules
 
