@@ -14,6 +14,7 @@ parsers, scanners, reader or player, and UI.
 | `NASServer` | An SMB share — persisted in each app's library file |
 | `String` helpers | Natural sort, matching and identity keys, display-name cleanup |
 | `AppLock` | Face ID to open the app, drawn in its own window so it covers presented screens too |
+| `Tombstones`, `UnionSync`, `Stamped`, `LatestWins` | Merging collections across devices so deletions and clears stick |
 
 ## Rules
 
