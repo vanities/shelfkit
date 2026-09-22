@@ -25,13 +25,16 @@ apps draw identically, so the two look alike by construction.
 | `CopyPlace`, `PlaceBackground`, `PlaceLegend`, `StorageBar`, `TransferRing` | How a source's page draws where each copy is — the same in both apps |
 | `SourceRowView`, `TransferRowView`, `TipRowView` | The rows of the Sources screen; each app supplies the words |
 | `StatCard`, `StatTile`, `GoalRing` | The Stats screen's cards, headline tiles and yearly goal (with its pace line) |
+| `ActivitySession`, `DayActivity`, `DayKey`, `DeviceActivity`, `ActivityStats` | Time spent with books: day totals synced one slot per device (so never counted twice), streaks, the last months as a calendar, time of day, and the books that took the most time |
+| `ActivityTimeView`, `ActivityHeatmap`, `ActivityHabitsView` | Stats' time, calendar and habits cards; each app supplies its words ("Average sitting", "Average session") |
 
 ## Rules
 
 - **App-specific values are passed in, never derived.** A Keychain service or file name that
   changes silently orphans a user's saved data, so the app owns it.
 - **Persisted types keep their coding keys.** `NASServer` is decoded from files written by
-  every earlier build of both apps.
+  every earlier build of both apps, and `DayActivity` from what Mango has synced since before
+  it was shared.
 - **Deleting is the last step, and only of what's been checked.** `LocalMove` removes an
   original only once its copy is whole, and counts a file already in the app's folder as the
   same only when every byte matches — same size isn't proof.
