@@ -10,6 +10,7 @@ extension Logger {
     static let bookmarks = Logger(subsystem: shelfKitSubsystem, category: "bookmarks")
     static let keychain = Logger(subsystem: shelfKitSubsystem, category: "keychain")
     static let lock = Logger(subsystem: shelfKitSubsystem, category: "lock")
+    static let move = Logger(subsystem: shelfKitSubsystem, category: "move")
 }
 
 /// Elapsed time since creation, for `[scope] what in N ms` log lines.

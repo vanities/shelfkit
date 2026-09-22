@@ -15,6 +15,8 @@ parsers, scanners, reader or player, and UI.
 | `String` helpers | Natural sort, matching and identity keys, display-name cleanup |
 | `AppLock` | Face ID to open the app, drawn in its own window so it covers presented screens too |
 | `Tombstones`, `UnionSync`, `Stamped`, `LatestWins` | Merging collections across devices so deletions and clears stick |
+| `LocalMove` | Moving a book into the app's own folder: copy, check it arrived whole, then remove the originals — never over a different file |
+| `URL.isInside` | Whether a file is inside a folder, whichever way the folder's path is written |
 
 ## Rules
 
@@ -22,6 +24,9 @@ parsers, scanners, reader or player, and UI.
   changes silently orphans a user's saved data, so the app owns it.
 - **Persisted types keep their coding keys.** `NASServer` is decoded from files written by
   every earlier build of both apps.
+- **Deleting is the last step, and only of what's been checked.** `LocalMove` removes an
+  original only once its copy is whole, and counts a file already in the app's folder as the
+  same only when every byte matches — same size isn't proof.
 - **Each app pins a version.** A change lands here with tests and a new tag; each app moves to
   it when it's ready, so one never breaks the other mid-release.
 
