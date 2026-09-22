@@ -5,7 +5,8 @@ novels) and Earmark (audiobooks) — two iOS apps that read your own files where
 including straight off a NAS.
 
 Only code that is the same idea in both apps lives here. Each app keeps its own models,
-parsers, scanners, reader or player, and UI.
+parsers, scanners, reader or player, and screens — the views here are the few pieces both
+apps draw identically, so the two look alike by construction.
 
 | | |
 |---|---|
@@ -17,6 +18,8 @@ parsers, scanners, reader or player, and UI.
 | `Tombstones`, `UnionSync`, `Stamped`, `LatestWins` | Merging collections across devices so deletions and clears stick |
 | `LocalMove` | Moving a book into the app's own folder: copy, check it arrived whole, then remove the originals — never over a different file |
 | `URL.isInside` | Whether a file is inside a folder, whichever way the folder's path is written |
+| `CopyPlace`, `PlaceBackground`, `PlaceLegend`, `StorageBar`, `TransferRing` | How a source's page draws where each copy is — the same in both apps |
+| `SourceRowView`, `TransferRowView`, `TipRowView` | The rows of the Sources screen; each app supplies the words |
 
 ## Rules
 
