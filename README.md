@@ -16,6 +16,7 @@ apps draw identically, so the two look alike by construction.
 | `String` helpers | Natural sort, matching and identity keys, display-name cleanup |
 | `AppLock` | Face ID to open the app, drawn in its own window so it covers presented screens too |
 | `Tombstones`, `UnionSync`, `Stamped`, `LatestWins` | Merging collections across devices so deletions and clears stick |
+| `CloudKeyValueStore` | The user's own iCloud key-value store: JSON per key, unchanged writes skipped, iCloud's size cap respected |
 | `LocalMove` | Moving a book into the app's own folder: copy, check it arrived whole, then remove the originals — never over a different file |
 | `URL.isInside` | Whether a file is inside a folder, whichever way the folder's path is written |
 | `CopyPlace`, `PlaceBackground`, `PlaceLegend`, `StorageBar`, `TransferRing` | How a source's page draws where each copy is — the same in both apps |

@@ -11,6 +11,7 @@ extension Logger {
     static let keychain = Logger(subsystem: shelfKitSubsystem, category: "keychain")
     static let lock = Logger(subsystem: shelfKitSubsystem, category: "lock")
     static let move = Logger(subsystem: shelfKitSubsystem, category: "move")
+    static let cloud = Logger(subsystem: shelfKitSubsystem, category: "cloud")
 }
 
 /// Elapsed time since creation, for `[scope] what in N ms` log lines.
