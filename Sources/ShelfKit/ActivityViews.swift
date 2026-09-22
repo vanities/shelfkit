@@ -26,7 +26,8 @@ public struct ActivityTimeView: View {
             HStack(spacing: 12) {
                 stat("\(stats.longestStreak)d", "Longest streak")
                 if let average = stats.averageSessionMinutes {
-                    stat("\(Int(average.rounded()))m", sessionLabel)
+                    // "<1m" and "1h 35m" rather than "0m" and "95m": a listener's drive runs long.
+                    stat(Durations.short(average * 60), sessionLabel)
                 }
                 if let pace = stats.pagesPerMinute {
                     stat(pace.formatted(.number.precision(.fractionLength(1))), "Pages / minute")
