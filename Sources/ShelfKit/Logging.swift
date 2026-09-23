@@ -14,6 +14,7 @@ extension Logger {
     static let cloud = Logger(subsystem: shelfKitSubsystem, category: "cloud")
     static let nas = Logger(subsystem: shelfKitSubsystem, category: "nas")
     static let store = Logger(subsystem: shelfKitSubsystem, category: "store")
+    static let files = Logger(subsystem: shelfKitSubsystem, category: "files")
 }
 
 /// Elapsed time since creation, for `[scope] what in N ms` log lines.
