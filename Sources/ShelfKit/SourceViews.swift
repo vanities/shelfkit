@@ -64,7 +64,7 @@ public struct SourceRowView: View {
     }
 
     /// "11 books · 24 files · scanned 1 minute ago": what a finished scan found, and when.
-    public static func scanSummary(items: Int, noun: String, files: Int, at date: Date?) -> String {
+    nonisolated public static func scanSummary(items: Int, noun: String, files: Int, at date: Date?) -> String {
         guard let date else { return "Not scanned yet" }
         let when = date.formatted(.relative(presentation: .named))
         if files == 0 { return "Empty · checked \(when)" }

@@ -85,7 +85,7 @@ public struct GoalRing: View {
     }
 
     /// "3 ahead of pace.", from the share of the year gone.
-    public static func pace(done: Int, goal: Int, on date: Date = .now, calendar: Calendar = .current) -> String {
+    nonisolated public static func pace(done: Int, goal: Int, on date: Date = .now, calendar: Calendar = .current) -> String {
         let day = Double(calendar.ordinality(of: .day, in: .year, for: date) ?? 1)
         let days = Double(calendar.range(of: .day, in: .year, for: date)?.count ?? 365)
         let delta = Double(done) - Double(goal) * day / days
