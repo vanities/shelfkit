@@ -54,6 +54,20 @@ final class NASClientIntegrationTests: XCTestCase {
         XCTAssertEqual(downloaded.prefix(Int(length)), collected.data)
         await client.disconnect()
     }
+
+    func testRelocationMatchesRealListingsAndRejectsMissingOrChangedFiles() async throws {
+        let client = try client()
+        try await client.connect()
+        let file = try await someFile(client)
+        let files = [RelinkFile(path: file.relativePath, bytes: file.size)]
+        let matches = try await NASRelocation.missing(files: files) { try await client.list($0) }
+        XCTAssertTrue(matches.isEmpty)
+        let changed = RelinkFile(path: file.relativePath, bytes: file.size + 1)
+        let absent = RelinkFile(path: "missing-\(UUID().uuidString).cbz", bytes: 1)
+        let rejected = try await NASRelocation.missing(files: [changed, absent]) { try await client.list($0) }
+        XCTAssertEqual(rejected, [changed.path, absent.path])
+        await client.disconnect()
+    }
 }
 
 /// Chunks arrive on AMSMB2's queue; gathered under a lock.
