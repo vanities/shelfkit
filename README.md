@@ -1,8 +1,9 @@
 # ShelfKit
 
 The plumbing shared by [Mango](https://github.com/vanities/mango) (manga, comics and light
-novels) and Earmark (audiobooks) — two iOS apps that read your own files where they are,
-including straight off a NAS.
+novels) and [Earmark](https://apps.apple.com/us/app/earmark-audiobooks/id6808821106)
+(audiobooks) — two iOS apps that read your own files where they are, including straight off
+a NAS.
 
 Only code that is the same idea in both apps lives here. Each app keeps its own models,
 parsers, scanners, reader or player, and screens — the views here are the few pieces both
